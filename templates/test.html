@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>手机控制电脑（鼠灵灵）</title>
+	<script src="static/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript">
+		// $((function(){
+		// 	$("#btnenter").click(function(){
+		// 		$.post("/enterpress",{keyword:"enter"}, function(data,status){
+		// 			if(status == "success"){
+		// 				console.log('keydown enter');
+		// 			}
+		// 		});
+		//   	});
+		// });
+		$(function(){
+	      $("#btnenter").click(function(){
+	      	// alert(1);
+	        $.post("/enterpress",{keyword:"enter"}, function(data,status){
+	          if(status == "success")
+	          {
+	            console.log('keydown enter');
+	          }
+	          else
+	          {
+	            console.log('keydown enter error');
+	          }
+	          });
+	      });
+	      $("#btnspace").click(function(){
+	      	// alert(1);
+	        $.post("/enterpress",{keyword:"capslock"}, function(data,status){
+	          if(status == "success")
+	          {
+	            console.log('keydown capslock');
+	          }
+	          else
+	          {
+	            console.log('keydown capslock error');
+	          }
+	          });
+	      });
+	      $("#btndesktop").click(function(){
+	      	// alert(1);
+	        $.post("/enterpress",{keyword:"win+d"}, function(data,status){
+	          if(status == "success")
+	          {
+	            console.log('keydown win+d');
+	          }
+	          else
+	          {
+	            console.log('keydown win+d error');
+	          }
+	          });
+	      });
+
+	      $("#btnpause").click(function(){
+	      	// alert(1);
+	        $.post("/enterpress",{keyword:"pause"}, function(data,status){
+	          if(status == "success")
+	          {
+	            console.log('keydown pause');
+	          }
+	          else
+	          {
+	            console.log('keydown pause error');
+	          }
+	          });
+	      });
+
+	      $("#btnsubmit").click(function(){
+	      	// alert(1);
+	      	var key = $('#keyword').val();
+	        $.post("/enterpress",{keyword:key}, function(data,status){
+	          if(status == "success")
+	          {
+	            console.log('send key success');
+	          }
+	          else
+	          {
+	            console.log('send key error');
+	          }
+	          });
+	      });
+
+	      $("#btnxysubmit").click(function(){
+	      	// alert(1);
+	      	var keyx = $('#keywordx').val();
+	      	// alert(keyx);
+	      	var keyy = $('#keywordy').val();
+	        $.post("/xyclick",{keywordx:keyx,keywordy:keyy}, function(data,status){
+	          if(status == "success")
+	          {
+	            console.log('send key success');
+	          }
+	          else
+	          {
+	            console.log('send key error');
+	          }
+	          });
+	      });
+	  });
+	</script>
+</head>
+<body>
+快捷键：<input type="text" id="keyword" style="width:1000px;height:100px;font-size: 30px"><br/>
+<button id="btnsubmit" style="width:200px;height:100px;font-size: 30px">发送快捷键</button><br/>
+X坐标：<input type="text" id="keywordx" style="width:1000px;height:100px;font-size: 30px" value="1000"><br/>
+Y坐标：<input type="text" id="keywordy" style="width:1000px;height:100px;font-size: 30px" value="500"><br/>
+<button id="btnxysubmit" style="width:200px;height:100px;font-size: 30px">坐标点击</button><br/>
+<button id="btnenter" style="width:200px;height:100px;font-size: 30px">Enter</button>
+<button id="btnspace" style="width:200px;height:100px;font-size: 30px">Space</button>
+<button id="btndesktop" style="width:200px;height:100px;font-size: 30px">DeskTop</button>
+<button id="btnpause" style="width:200px;height:100px;font-size: 30px">Pause</button><br/>
+
+</body>
+</html>

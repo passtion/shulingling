@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title></title>
+        <link rel="stylesheet" href="{{static_url('css/keyBoard.css')}}" />
+        <style>
+            html, body{
+                height: 100%;
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+            }
+            
+            span#input{
+                display: inline-block;
+                border-bottom: solid 1px green;
+                width: 200px;
+                height: 30px;
+                line-height: 30px;
+                margin: 20px;
+                background-color: #EFEFEF;
+            }
+        </style>
+    </head>
+
+    <body>
+        <span id="input" onclick="openKeyBoard(this)"></span>
+    </body>
+    <script>
+        function openKeyBoard(_this){
+            keyBoard.openKeyBoard('请输入数字', _this.innerText, keyBoard.keyModels.PLUS, function(number){
+                _this.innerText = number;
+            });
+        }
+    </script>
+    <script type="text/javascript" src="{{static_url('js/keyBoard.js')}}" ></script>
+</html>
