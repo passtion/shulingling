@@ -3,3 +3,5 @@
 
 说明：
 使用python Tornado开发的web应用，方便在局域网使用手机控制电脑键盘鼠标，手机无需安装应用，通过手机浏览器访问服务端地址即可控制电脑键盘和鼠标。
+
+<img src="screenshots/screenshot.png" />
